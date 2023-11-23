@@ -24,11 +24,11 @@ public class ClienteController {
         System.out.println("Customer registered successfully");
     }
 
-    public void listCliente() throws SQLException {
+    public void listarClientes() throws SQLException {
         Statement statement = objConection.createStatement();
 
-        String queryConsult = "SELECT * FROM clientes";
-        ResultSet resultSet = statement.executeQuery(queryConsult);
+        String queryConsulta = "SELECT * FROM clientes";
+        ResultSet resultSet = statement.executeQuery(queryConsulta);
         Cliente cliente = new Cliente();
 
         while (resultSet.next()) {
@@ -49,8 +49,8 @@ public class ClienteController {
 
         public void consultarCliente(String cpf) throws SQLException {
             Statement statement = objConection.createStatement();
-            String querySearch = "SELECT * FROM clientes WHERE cpf = '" + cpf + "'";
-            ResultSet resultSet = statement.executeQuery(querySearch);
+            String queryPesquisa = "SELECT * FROM clientes WHERE cpf = '" + cpf + "'";
+            ResultSet resultSet = statement.executeQuery(queryPesquisa);
             Cliente cliente = new Cliente();
 
             while(resultSet.next()){
@@ -62,15 +62,15 @@ public class ClienteController {
             }
         }
 
-        public void deleteCliente(String cpf) throws SQLException {
+        public void deletarCliente(String cpf) throws SQLException {
             System.out.println("Qual CPF deseja deletar: " + cpf);
 
             Statement statement = objConection.createStatement();
 
-            String queryDelete = "DELETE FROM clientes WHERE cpf = '" + cpf + "'";
+            String queryDeletar = "DELETE FROM clientes WHERE cpf = '" + cpf + "'";
 
             try{
-                statement.executeUpdate(queryDelete);
+                statement.executeUpdate(queryDeletar);
                 System.out.println("Cliente de CPF " + cpf + " deletado com sucesso! ");
             } catch (Exception error){
                 System.out.println(error);
@@ -80,9 +80,9 @@ public class ClienteController {
         public void atualizarCliente(String cpf, String telefone) throws SQLException {
              Statement statement = objConection.createStatement();
 
-             String queryEdit = "UPDATE clientes SET telefone = '" + telefone + "' WHERE cpf = '" + cpf + "'";
+             String queryAtualizar = "UPDATE clientes SET telefone = '" + telefone + "' WHERE cpf = '" + cpf + "'";
 
-             statement.executeUpdate(queryEdit);
+             statement.executeUpdate(queryAtualizar);
              System.out.println("Informações do cliente alteradas com sucesso!");
     }
 
