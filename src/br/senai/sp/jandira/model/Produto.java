@@ -16,10 +16,11 @@ public class Produto {
         System.out.println("| --  Cadastro de Produtos   -- |");
         System.out.println("| -- =0=0= -- =0=0= -- =0=0= -- |");
 
-        System.out.println("Nome do Produto: ");
-        this.nomeProduto = scanner.nextLine();
         System.out.println("ID do Produto: ");
         this.idProduto = scanner.nextInt();
+        scanner.nextLine();
+        System.out.println("Nome do Produto: ");
+        this.nomeProduto = scanner.nextLine();
         System.out.println("Quantidade: ");
         this.quantidadeEstoque = scanner.nextInt();
         System.out.println("Preço Unit: ");

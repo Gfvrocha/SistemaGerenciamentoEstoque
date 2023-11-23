@@ -29,17 +29,19 @@ public class Menu {
             System.out.println("| 4 - Cadastrar Produto                  |");
             System.out.println("| 5 - Listar Produtos                    |");
             System.out.println("| 6 - Deletar Produto                    |");
-            System.out.println("|   - Sair                               |");
+            System.out.println("| 7 - Atualizar Produto                  |");
+            System.out.println("|   - Sair                               |\n");
 
-            System.out.println("| Escolha uma opção :                    |");
+            System.out.println("<|><|><|>   Escolha uma opção   <|><|><|> ");
             int opcao = scanner.nextInt();
             scanner.nextLine();
 
             switch (opcao){
                 case 1:
                     Cliente newCliente = new Cliente();
-                    //newCliente.
+                    newCliente.cadastrarCliente();
                     cliente.registarCliente(newCliente);
+
 
                     break;
 
@@ -50,6 +52,7 @@ public class Menu {
                     break;
 
                 case 3:
+
                     break;
 
                 case 4:
@@ -65,6 +68,18 @@ public class Menu {
                     break;
 
                 case 6:
+                    System.out.println("Qual produto deseja excluir: ");
+                    String produtoDelete = scanner.nextLine();
+                    produto.deletarProduto(produtoDelete );
+                    break;
+
+                case 7:
+                    System.out.println("Informe o produto para ser atualizado: ");
+                    String nomeUpdate = scanner.nextLine();
+                    System.out.println("Informe o novo ID para " + nomeUpdate);
+                    int idProduto = scanner.nextInt();
+                    produto.atualizarProduto(nomeUpdate, idProduto);
+
                     break;
             }
 

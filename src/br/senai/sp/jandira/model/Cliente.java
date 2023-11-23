@@ -6,21 +6,28 @@ public class Cliente {
 
     Scanner scanner = new Scanner(System.in);
 
-    private String nome, cpf, telefone;
+    private String nome, telefone;
     private int idCliente;
+    private long cpf;
 
-    private void cadastrarCliente(){
+    public void cadastrarCliente(){
 
         System.out.println("+ -- =0=0= -- =0=0= -- =0=0= -- +");
         System.out.println("| --   Cadastro de Cliente   -- |");
         System.out.println("| -- =0=0= -- =0=0= -- =0=0= -- |");
 
+        //System.out.println("Codigo (Id) Cliente: ");
+        //this.idCliente = scanner.nextInt();
+        //scanner.nextLine();
         System.out.println("Nome no Cliente: ");
         this.nome = scanner.nextLine();
         System.out.println("CPF: ");
-        this.cpf = scanner.nextLine();
+        this.cpf = scanner.nextLong();
+        scanner.nextLine();
         System.out.println("Telefone: ");
         this.telefone = scanner.nextLine();
+
+        System.out.println("Cliente cadastrado com sucesso!");
 
 
 
@@ -34,11 +41,11 @@ public class Cliente {
         this.nome = nome;
     }
 
-    public String getCpf() {
+    public long getCpf() {
         return cpf;
     }
 
-    public void setCpf(String cpf) {
+    public void setCpf(long cpf) {
         this.cpf = cpf;
     }
 

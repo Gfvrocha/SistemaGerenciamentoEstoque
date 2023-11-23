@@ -3,6 +3,7 @@ package br.senai.sp.jandira.controller;
 import br.senai.sp.jandira.model.Conexao;
 import br.senai.sp.jandira.model.Produto;
 
+import javax.sound.midi.spi.MidiDeviceProvider;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -16,11 +17,11 @@ public class ProdutoController {
     public void registrarProduto(Produto newProduto) throws SQLException {
         Statement statement = objConection.createStatement();
 
-        String queryRegistrar = "INSERT INTO produtos (idProdutos, " +
+        String queryRegistrar = "INSERT INTO produtos (idProduto, " +
                 "nome, quantidadeEstoque, precoUnit, fornecedor) values (" +
                 newProduto.getIdProduto() + ",'" + newProduto.getNomeProduto() +
                 "','" + newProduto.getQuantidadeEstoque() + "','" + newProduto.getPrecoUnit() +
-                "','" + newProduto.getFornecedor() + ")";
+                "','" + newProduto.getFornecedor() + "')";
 
         statement.executeUpdate(queryRegistrar);
         System.out.println("Produto registrado com sucesso!");
@@ -31,6 +32,7 @@ public class ProdutoController {
         String queryConsulta = "SELECT * FROM produtos";
         ResultSet resultSet = statement.executeQuery(queryConsulta);
         Produto produto = new Produto();
+
 
         while (resultSet.next()){
             produto.setIdProduto(resultSet.getInt("idProduto"));
@@ -87,10 +89,10 @@ public class ProdutoController {
 
     }
 
-    public void atualizarProduto(String nome, String fornecedor) throws SQLException {
+    public void atualizarProduto(String nome, int idProduto) throws SQLException {
         Statement statement = objConection.createStatement();
 
-        String queryAtualizar = "UPDATE produtos SET nome = '" + nome + "' WHERE fornecedor = '" + fornecedor + "'";
+        String queryAtualizar = "UPDATE produtos SET nome = '" + nome + "' WHERE idProduto = " + idProduto;
 
         statement.executeUpdate(queryAtualizar);
         System.out.println("Informações do produto alteradas com sucesso!");

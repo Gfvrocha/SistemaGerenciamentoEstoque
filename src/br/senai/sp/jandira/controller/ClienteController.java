@@ -16,12 +16,12 @@ public class ClienteController {
     public void registarCliente(Cliente newCliente) throws SQLException {
         Statement statement = objConection.createStatement();
 
-        String queryRegister = "INSERT INTO clientes (cpf, nome, telefone) values ('" +
-                newCliente.getCpf() + "','" + newCliente.getNome() +
+        String queryRegister = "INSERT INTO clientes (idCliente, nome, cpf, telefone) values ('" + newCliente.getIdCliente() + "','" +
+                newCliente.getNome() + "','" + newCliente.getCpf() +
                 "','" + newCliente.getTelefone() + "')";
 
         statement.executeUpdate(queryRegister);
-        System.out.println("Customer registered successfully");
+        System.out.println("Cliente cadastrado com sucesso!");
     }
 
     public void listarClientes() throws SQLException {
@@ -34,7 +34,7 @@ public class ClienteController {
         while (resultSet.next()) {
             cliente.setIdCliente(resultSet.getInt("idCliente"));
             cliente.setNome(resultSet.getString("nome"));
-            cliente.setCpf(resultSet.getString("cpf"));
+            cliente.setCpf(resultSet.getInt("cpf"));
             cliente.setTelefone(resultSet.getString("telefone"));
 
             System.out.println(cliente.getIdCliente());
@@ -56,7 +56,7 @@ public class ClienteController {
             while(resultSet.next()){
                 cliente.setIdCliente(resultSet.getInt("idCliente"));
                 cliente.setNome(resultSet.getString("nome"));
-                cliente.setCpf(resultSet.getString("cpf"));
+                cliente.setCpf(resultSet.getInt("cpf"));
                 cliente.setTelefone(resultSet.getString("telefone"));
                 System.out.println("=0=0=0=0=0=0=0=0=0=0=0=0=0=0=0=0=0=");
             }

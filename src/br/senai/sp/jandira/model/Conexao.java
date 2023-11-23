@@ -12,7 +12,7 @@ public class Conexao {
 
     public Conexao(){
         this.server = "localhost";
-        this.database = "db_sge";
+        this.database = "db_sgpe";
         this.user = "root";
         this.password = "bcd127";
     }
