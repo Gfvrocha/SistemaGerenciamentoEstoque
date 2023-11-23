@@ -24,6 +24,7 @@ public class Produto {
         this.quantidadeEstoque = scanner.nextInt();
         System.out.println("Preço Unit: ");
         this.precoUnit = scanner.nextDouble();
+        scanner.nextLine();
         System.out.println("Fornecedor: ");
         this.fornecedor = scanner.nextLine();
 

@@ -1,6 +1,7 @@
 package br.senai.sp.jandira.controller;
 
 import br.senai.sp.jandira.model.Cliente;
+import br.senai.sp.jandira.model.Produto;
 
 import java.sql.SQLException;
 import java.util.Scanner;
@@ -46,6 +47,24 @@ public class Menu {
                     System.out.println("=0=0= -- Lista de Clientes -- =0=0=");
                     cliente.listarClientes();
 
+                    break;
+
+                case 3:
+                    break;
+
+                case 4:
+                    Produto newProduto = new Produto();
+                    newProduto.cadastrarProduto();
+                    produto.registrarProduto(newProduto);
+
+                    break;
+
+                case 5:
+                    System.out.println("=0=0= -- Listar Produtos -- =0=0=");
+                    produto.listarProdutos();
+                    break;
+
+                case 6:
                     break;
             }
 
