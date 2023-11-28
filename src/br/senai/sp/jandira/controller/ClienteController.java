@@ -62,7 +62,7 @@ public class ClienteController {
             }
         }
 
-        public void deletarCliente(String cpf) throws SQLException {
+        public void deletarCliente(long cpf) throws SQLException {
             System.out.println("Qual CPF deseja deletar: " + cpf);
 
             Statement statement = objConection.createStatement();
@@ -77,10 +77,10 @@ public class ClienteController {
             }
         }
 
-        public void atualizarCliente(String cpf, String telefone) throws SQLException {
+        public void atualizarCliente(String nome, String telefone) throws SQLException {
              Statement statement = objConection.createStatement();
 
-             String queryAtualizar = "UPDATE clientes SET telefone = '" + telefone + "' WHERE cpf = '" + cpf + "'";
+             String queryAtualizar = "UPDATE clientes SET telefone = '" + telefone + "' WHERE nome = '" + nome + "'";
 
              statement.executeUpdate(queryAtualizar);
              System.out.println("Informações do cliente alteradas com sucesso!");

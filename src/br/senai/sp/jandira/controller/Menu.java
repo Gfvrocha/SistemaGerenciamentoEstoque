@@ -26,11 +26,12 @@ public class Menu {
             System.out.println("| 1 - Cadastrar Cliente                  |");
             System.out.println("| 2 - Listar Clientes                    |");
             System.out.println("| 3 - Atualizar Cliente                  |");
-            System.out.println("| 4 - Cadastrar Produto                  |");
-            System.out.println("| 5 - Listar Produtos                    |");
-            System.out.println("| 6 - Deletar Produto                    |");
-            System.out.println("| 7 - Atualizar Produto                  |");
-            System.out.println("|   - Sair                               |\n");
+            System.out.println("| 4 - Deletar Cliente                    |");
+            System.out.println("| 5 - Cadastrar Produto                  |");
+            System.out.println("| 6 - Listar Produtos                    |");
+            System.out.println("| 7 - Deletar Produto                    |");
+            System.out.println("| 8 - Atualizar Produto                  |");
+            System.out.println("| 9  - Sair                              |\n");
 
             System.out.println("<|><|><|>   Escolha uma opção   <|><|><|> ");
             int opcao = scanner.nextInt();
@@ -52,34 +53,49 @@ public class Menu {
                     break;
 
                 case 3:
+                    System.out.println("Informe o cliente que deseja atualizar: ");
+                    String nomeClienteUpdate = scanner.nextLine();
+                    System.out.println("Informe o novo ID para " + nomeClienteUpdate);
+                    String telefoneNome = scanner.nextLine();
+                    cliente.atualizarCliente(nomeClienteUpdate, telefoneNome);
 
                     break;
 
                 case 4:
+                    System.out.println("Qual cpf deseja excluir: ");
+                    long cpfDelete = scanner.nextLong();
+                    cliente.deletarCliente(cpfDelete);
+                    break;
+
+                case 5:
                     Produto newProduto = new Produto();
                     newProduto.cadastrarProduto();
                     produto.registrarProduto(newProduto);
 
                     break;
 
-                case 5:
+                case 6:
                     System.out.println("=0=0= -- Listar Produtos -- =0=0=");
                     produto.listarProdutos();
                     break;
 
-                case 6:
+                case 7:
                     System.out.println("Qual produto deseja excluir: ");
                     String produtoDelete = scanner.nextLine();
                     produto.deletarProduto(produtoDelete );
                     break;
 
-                case 7:
+                case 8:
                     System.out.println("Informe o produto para ser atualizado: ");
                     String nomeUpdate = scanner.nextLine();
                     System.out.println("Informe o novo ID para " + nomeUpdate);
                     int idProduto = scanner.nextInt();
                     produto.atualizarProduto(nomeUpdate, idProduto);
 
+                    break;
+
+                case 9:
+                    continuar = false;
                     break;
             }
 
